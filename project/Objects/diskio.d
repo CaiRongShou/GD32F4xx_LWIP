@@ -1,0 +1,42 @@
+./objects/diskio.o: ..\module\fatfs\diskio.c ..\module\fatfs\ff.h \
+  ..\module\fatfs\ffconf.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\module\fatfs\diskio.h ..\USER\bsp\inc\bsp_sd.h \
+  ..\USER\bsp\inc\sdcard.h \
+  ..\libraries\CMSIS\GD\GD32F4xx\Include\gd32f4xx.h \
+  C:\Users\crs\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h \
+  C:\Users\crs\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h \
+  C:\Users\crs\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h \
+  C:\Users\crs\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h \
+  C:\Users\crs\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h \
+  ..\libraries\CMSIS\GD\GD32F4xx\Include\system_gd32f4xx.h \
+  ..\libraries\CMSIS\GD\GD32F4xx\Include\..\..\..\..\..\board\gd32f4xx_libopt.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_rcu.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_adc.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_can.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_crc.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_ctc.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_dac.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_dbg.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_dci.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_dma.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_exti.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_fmc.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_fwdgt.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_gpio.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_syscfg.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_i2c.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_iref.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_pmu.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_rtc.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_sdio.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_spi.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_timer.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_trng.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_usart.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_wwdgt.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_misc.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_enet.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
