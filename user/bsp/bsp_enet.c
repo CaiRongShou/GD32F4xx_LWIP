@@ -78,13 +78,6 @@ void enet_system_setup(void)
 #ifdef SELECT_DESCRIPTORS_ENHANCED_MODE
     enet_desc_select_enhanced_mode();
 #endif /* SELECT_DESCRIPTORS_ENHANCED_MODE */
-
-    /* configure systick clock source as HCLK */
-    systick_clksource_set(SYSTICK_CLKSOURCE_HCLK);
-
-    /* an interrupt every 10ms */
-    ahb_frequency = rcu_clock_freq_get(CK_AHB);
-    SysTick_Config(ahb_frequency / 100);
 }
 
 /*!
@@ -147,13 +140,6 @@ static void enet_gpio_config(void)
     rcu_periph_clock_enable(RCU_GPIOB);
     rcu_periph_clock_enable(RCU_GPIOC);
     rcu_periph_clock_enable(RCU_GPIOD);
-    rcu_periph_clock_enable(RCU_GPIOG);
-    rcu_periph_clock_enable(RCU_GPIOH);
-    rcu_periph_clock_enable(RCU_GPIOI);
-
-    gpio_af_set(GPIOA, GPIO_AF_0, GPIO_PIN_8);
-    gpio_mode_set(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_8);
-    gpio_output_options_set(GPIOA, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, GPIO_PIN_8);
 
     /* enable SYSCFG clock */
     rcu_periph_clock_enable(RCU_SYSCFG);
@@ -288,21 +274,21 @@ static void enet_gpio_config(void)
     gpio_af_set(GPIOA, GPIO_AF_11, GPIO_PIN_2);
     gpio_af_set(GPIOA, GPIO_AF_11, GPIO_PIN_7);
 
-    /* PG11: ETH_RMII_TX_EN */
-    gpio_mode_set(GPIOG, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_11);
-    gpio_output_options_set(GPIOG, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, GPIO_PIN_11);
+    /* PB11: ETH_RMII_TX_EN */
+    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_11);
+    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, GPIO_PIN_11);
 
-    /* PG13: ETH_RMII_TXD0 */
-    gpio_mode_set(GPIOG, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_13);
-    gpio_output_options_set(GPIOG, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, GPIO_PIN_13);
+    /* PB13: ETH_RMII_TXD1 */
+    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_13);
+    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, GPIO_PIN_13);
 
-    /* PG14: ETH_RMII_TXD1 */
-    gpio_mode_set(GPIOG, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_14);
-    gpio_output_options_set(GPIOG, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, GPIO_PIN_14);
+    /* PB12: ETH_RMII_TXD0 */
+    gpio_mode_set(GPIOB, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_12);
+    gpio_output_options_set(GPIOB, GPIO_OTYPE_PP, GPIO_OSPEED_MAX, GPIO_PIN_12);
 
-    gpio_af_set(GPIOG, GPIO_AF_11, GPIO_PIN_11);
-    gpio_af_set(GPIOG, GPIO_AF_11, GPIO_PIN_13);
-    gpio_af_set(GPIOG, GPIO_AF_11, GPIO_PIN_14);
+    gpio_af_set(GPIOB, GPIO_AF_11, GPIO_PIN_11);
+    gpio_af_set(GPIOB, GPIO_AF_11, GPIO_PIN_13);
+    gpio_af_set(GPIOB, GPIO_AF_11, GPIO_PIN_12);
 
     /* PC1: ETH_MDC */
     gpio_mode_set(GPIOC, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_PIN_1);
