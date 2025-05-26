@@ -177,7 +177,7 @@ void systick_config(void)
 */
 void SysTick_Handler(void)
 {
-	g_system_tick += 10;
+	g_system_tick ++;
     soft_timer_tick();
 }
 
@@ -192,17 +192,7 @@ uint32_t get_system_tick(void)
 void board_init(void)
 {
 	nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
-	
-    /* NVIC Configuration */
-#define NVIC_VTOR_MASK              0x3FFFFF80
-#ifdef  VECT_TAB_RAM
-    /* Set the Vector Table base location at 0x10000000 */
-    SCB->VTOR  = (0x10000000 & NVIC_VTOR_MASK);
-#else  /* VECT_TAB_FLASH  */
-    /* Set the Vector Table base location at 0x08000000 */
-    SCB->VTOR  = (0x08000000 & NVIC_VTOR_MASK);
-#endif
-
+	nvic_vector_table_set(NVIC_VECTTAB_FLASH, 0x0);
     systick_config();
 
 }

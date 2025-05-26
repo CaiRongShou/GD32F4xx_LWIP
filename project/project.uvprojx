@@ -10,7 +10,7 @@
       <TargetName>debug</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6190000::V6.19::ARMCLANG</pCCUsed>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -614,11 +614,6 @@
               <FileType>1</FileType>
               <FilePath>..\user\bsp\bsp_enet.c</FilePath>
             </File>
-            <File>
-              <FileName>netconf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\bsp\netconf.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -628,6 +623,11 @@
               <FileName>sdcard.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\user\sys\sdcard.c</FilePath>
+            </File>
+            <File>
+              <FileName>tcpecho_raw.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\sys\tcpecho_raw.c</FilePath>
             </File>
           </Files>
         </Group>

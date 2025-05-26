@@ -75,3 +75,5 @@
 .\objects\ethernetif.o: ..\libraries\GD32F4xx_standard_peripheral\Include\gd32f4xx_exmc.h
 .\objects\ethernetif.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\ethernetif.o: ..\USER\bsp\inc\bsp_enet.h
+.\objects\ethernetif.o: ..\app\inc\main.h
+.\objects\ethernetif.o: ..\app\inc\gd32f4xx_libopt.h
