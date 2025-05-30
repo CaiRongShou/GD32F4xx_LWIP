@@ -404,23 +404,27 @@ ErrStatus enet_init(enet_mediamode_enum mediamode, enet_chksumconf_enum checksum
         } else {
             media_temp |= ENET_SPEEDMODE_100M;
         }
+		
+		/* after configuring the PHY, use mediamode to configure registers */
+		reg_value = ENET_MAC_CFG;
+		/* configure ENET_MAC_CFG register */
+		reg_value &= (~(ENET_MAC_CFG_SPD | ENET_MAC_CFG_DPM | ENET_MAC_CFG_LBM));
+		reg_value |= media_temp;
+		ENET_MAC_CFG = reg_value;
     } else {
-        phy_value = (uint16_t)((media_temp & ENET_MAC_CFG_DPM) >> 3);
-        phy_value |= (uint16_t)((media_temp & ENET_MAC_CFG_SPD) >> 1);
-        phy_state = enet_phy_write_read(ENET_PHY_WRITE, PHY_ADDRESS, PHY_REG_BCR, &phy_value);
-        if(!phy_state) {
-            /* return ERROR due to write timeout */
-            return enet_state;
-        }
-        /* PHY configuration need some time */
-        _ENET_DELAY_(PHY_CONFIGDELAY);
+		void lan_phy_init(void);
+		lan_phy_init();
+//        phy_value = (uint16_t)((media_temp & ENET_MAC_CFG_DPM) >> 3);
+//        phy_value |= (uint16_t)((media_temp & ENET_MAC_CFG_SPD) >> 1);
+//        phy_state = enet_phy_write_read(ENET_PHY_WRITE, PHY_ADDRESS, PHY_REG_BCR, &phy_value);
+//        if(!phy_state) {
+//            /* return ERROR due to write timeout */
+//            return enet_state;
+//        }
+//        /* PHY configuration need some time */
+//        _ENET_DELAY_(PHY_CONFIGDELAY);
     }
-    /* after configuring the PHY, use mediamode to configure registers */
-    reg_value = ENET_MAC_CFG;
-    /* configure ENET_MAC_CFG register */
-    reg_value &= (~(ENET_MAC_CFG_SPD | ENET_MAC_CFG_DPM | ENET_MAC_CFG_LBM));
-    reg_value |= media_temp;
-    ENET_MAC_CFG = reg_value;
+
 
 
     /* 2st, configure checksum */

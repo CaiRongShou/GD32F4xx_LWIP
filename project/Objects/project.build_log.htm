@@ -27,16 +27,27 @@ Project File Date:  05/26/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'debug'
+compiling bsp_enet.c...
+..\user\bsp\bsp_enet.c(414): warning:  #177-D: variable "g_ip"  was declared but never referenced
+  	uint32_t g_ip = 0, g_netmask = 0, g_gw = 0;
+..\user\bsp\bsp_enet.c(414): warning:  #177-D: variable "g_netmask"  was declared but never referenced
+  	uint32_t g_ip = 0, g_netmask = 0, g_gw = 0;
+..\user\bsp\bsp_enet.c(414): warning:  #177-D: variable "g_gw"  was declared but never referenced
+  	uint32_t g_ip = 0, g_netmask = 0, g_gw = 0;
+..\user\bsp\bsp_enet.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=42576 RO-data=1120 RW-data=276 ZI-data=62916  
+FromELF: creating hex file...
 After Build - User command #2: Keil5_disp_size_bar_v0.3.exe
 [Keil5_disp_size_bar V0.3]: start find map file
 [Keil5_disp_size_bar V0.3]: Found:E:\GD32\01-Project\lwip\project\Listings\project.map
 [Keil5_disp_size_bar V0.3]: found end
 ram:
-  448 KB   ram1:|¡ö¡ö__________________| 13.77 % (   61.68 KB /   448.00 KB) [395592 B]
+  448 KB   ram1:|¡ö¡ö__________________| 13.77 % (   61.71 KB /   448.00 KB) [395560 B]
 flash:
- 1024 KB flash1:|____________________|  3.52 % (   36.06 KB /  1024.00 KB) [1011652 B]
+ 1024 KB flash1:|____________________|  4.17 % (   42.67 KB /  1024.00 KB) [1004880 B]
  
-".\Objects\project.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\project.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

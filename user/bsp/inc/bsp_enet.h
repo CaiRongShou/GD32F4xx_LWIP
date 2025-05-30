@@ -4,47 +4,49 @@
 #include "main.h"
 
 
-//#define USE_DHCP 1 /* enable DHCP, if disabled static address is used */
+//#define USE_DHCP       1 /* enable DHCP, if disabled static address is used */
 
 #define USE_ENET_INTERRUPT
 //#define TIMEOUT_CHECK_USE_LWIP
 /* MAC address: MAC_ADDR0:MAC_ADDR1:MAC_ADDR2:MAC_ADDR3:MAC_ADDR4:MAC_ADDR5 */
-#define MAC_ADDR0 2
-#define MAC_ADDR1 0xA
-#define MAC_ADDR2 0xF
-#define MAC_ADDR3 0xE
-#define MAC_ADDR4 0xD
-#define MAC_ADDR5 6
+#define MAC_ADDR0   2
+#define MAC_ADDR1   0xA
+#define MAC_ADDR2   0xF
+#define MAC_ADDR3   0xE
+#define MAC_ADDR4   0xD
+#define MAC_ADDR5   6
 
 
 /* MII and RMII mode selection */
-#define RMII_MODE // user have to provide the 50 MHz clock by soldering a 50 MHz oscillator
+#define RMII_MODE  // user have to provide the 50 MHz clock by soldering a 50 MHz oscillator
+//#define MII_MODE
+
+/* clock the PHY from external 25MHz crystal (only for MII mode) */
+#ifdef  MII_MODE
+#define PHY_CLOCK_MCO
+#endif
 
 
-/*lwip¿ØÖÆ½á¹¹Ìå*/
-typedef struct 
+#define LWIP_MAX_DHCP_TRIES   4     /* DHCPæœåŠ¡å™¨æœ€å¤§é‡è¯•æ¬¡æ•° */
+
+/*lwipæ§åˆ¶ç»“æ„ä½“*/
+typedef struct  
 {
-uint8_t mac[6]; /* MACµØÖ· */
-uint8_t remoteip[4]; /* Ô¶¶ËÖ÷»úIPµØÖ· */ 
-uint8_t ip[4]; /* ±¾»úIPµØÖ· */
-uint8_t netmask[4]; /* ×ÓÍøÑÚÂë */
-uint8_t gateway[4]; /* Ä¬ÈÏÍø¹ØµÄIPµØÖ· */
+    uint8_t mac[6];                 /* MACåœ°å€ */
+    uint8_t remoteip[4];            /* è¿œç«¯ä¸»æœºIPåœ°å€ */ 
+    uint8_t ip[4];                  /* æœ¬æœºIPåœ°å€ */
+    uint8_t netmask[4];             /* å­ç½‘æ©ç  */
+    uint8_t gateway[4];             /* é»˜è®¤ç½‘å…³çš„IPåœ°å€ */
 }__lwip_dev;
 
-extern __lwip_dev lwipdev; /* lwip¿ØÖÆ½á¹¹Ìå */
+extern __lwip_dev lwipdev;          /* lwipæ§åˆ¶ç»“æ„ä½“ */
 
 /* function declarations */
-#ifdef USE_DHCP
-void lwip_dhcp_process_handle(void);
-#endif /* USE_DHCP */
-
 /* setup ethernet system(GPIOs, clocks, MAC, DMA, systick) */
-void enet_system_setup(void);
-
-void lwip_stack_init(void);
-
-void lwip_periodic_handle(__IO uint32_t localtime);
-
+uint8_t lwip_comm_init(void);
 void lwip_pkt_handle(void);
+void lwip_periodic_handle(__IO uint32_t localtime);
+void lan_phy_init(void);
+
 
 #endif /* GD32F4xx_ENET_EVAL_H */

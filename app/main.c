@@ -10,9 +10,7 @@ int main(void)
 	
 	bsp_uart_init();
 	
-	enet_system_setup();
-	
-	lwip_stack_init();
+	lwip_comm_init();
 	
 	printf("init susccess\r\n");
     while(1) 
